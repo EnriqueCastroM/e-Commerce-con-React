@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Product from './product';
-
+import axios from 'axios';
 
    
 const Item = styled(Paper)(({ theme }) => ({
@@ -47,24 +47,23 @@ const searcher = (e) => {
 
   return (
     
+    
     <div>
         <input value={search} onSubmit={searcher} type="text" placeholder='Search' className='form-control'/>
-        <table className='table table-striped table-hover mt-5 shadow-lg'>
-            <thead>
-                <tr className='bg-curso text-white'>
-                    <th>Product name</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                { results.map( (user) => (
-                    <tr key={user._id}>
-                        <td>{user.product_name}</td>
-                        <td>{user.price}</td>
-                    </tr>                    
+        <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      { results.map( (users) => (
+                  <Grid item xs={2} sm={4} md={4} key={users._id}>
+                  <Product/>
+                  </Grid>                    
                 ))}
-            </tbody>
-        </table>
+      </Grid>
+      </Box>
+        
     </div>
   );
 }
+
+
+
+

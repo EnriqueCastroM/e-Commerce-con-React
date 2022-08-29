@@ -24,15 +24,14 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Product({product : {_id, product_name, price, description, image, category}}) {
-  const [expanded, setExpanded] = React.useState(false);
+export default function Product() {
   
+  const [expanded, setExpanded] = React.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   
-
   return (
     
     <Card sx={{ maxWidth: 345 }}>
@@ -40,16 +39,20 @@ export default function Product({product : {_id, product_name, price, descriptio
         action={
           <IconButton aria-label="settings">
             
-            {accounting.formatMoney(50)}
+            {
+            accounting.formatMoney(50)
+            
+            }
+            
           </IconButton>
         }
-        title={"Producto"}
+        title={''}
         subheader="In Stock"
       />
       <CardMedia
         component="img"
         height="194"
-        image={"https://www.ecestaticos.com/image/clipping/d0d127b5b80c69905e744d76a836d4c8/un-planeta-doble-que-no-se-ve-desde-la-edad-media-el-fenomeno-unico-de-jupiter-y-saturno.jpg"}
+        image={""}
         alt={"category"}
       />
       <CardContent>
@@ -82,7 +85,7 @@ export default function Product({product : {_id, product_name, price, descriptio
         <CardContent>
           <Typography>
           {
-            
+            {}
           }
           </Typography>
         </CardContent>
