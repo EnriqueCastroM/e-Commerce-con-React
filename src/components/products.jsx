@@ -20,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Products() {
 //setear los hooks useState
-const [ users, setUsers ] = useState([])
+const [ items, setItems ] = useState([])
 const [ search, setSearch ] = useState("")   
 
 //función para traer los datos de la API
@@ -30,7 +30,7 @@ const showData = async () => {
     const response = await fetch(URL)
     const data = await response.json()
     //console.log(data)
-    setUsers(data)
+    setItems(data)
   }
 
  //función de búsqueda
@@ -39,7 +39,7 @@ const searcher = (e) => {
 }
 
  //metodo de filtrado 2   
- const results = !search ? users : users.filter((dato)=> dato.name.toLowerCase().includes(search.toLocaleLowerCase()))
+ const results = !search ? items : items.filter((dato)=> dato.name.toLowerCase().includes(search.toLocaleLowerCase()))
 
  useEffect( ()=> {
   showData()
@@ -48,19 +48,20 @@ const searcher = (e) => {
   return (
     
     
-    <div>
-        <input value={search} onSubmit={searcher} type="text" placeholder='Search' className='form-control'/>
+    
         <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-      { results.map( (users) => (
-                  <Grid item xs={2} sm={4} md={4} key={users._id}>
-                  <Product/>
+      { results.map( (item) => (
+                  <Grid item xs={2} sm={4} md={4} key={item._id}>
+                  <Product item={item}/>
                   </Grid>                    
                 ))}
       </Grid>
       </Box>
-        
-    </div>
+      
+              
+            
+    
   );
 }
 

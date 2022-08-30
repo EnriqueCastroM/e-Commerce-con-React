@@ -24,13 +24,14 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Product() {
+export default function Product({item}) {
   
   const [expanded, setExpanded] = React.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  const {price} = item
   
   return (
     
@@ -40,24 +41,24 @@ export default function Product() {
           <IconButton aria-label="settings">
             
             {
-            accounting.formatMoney(50)
+            accounting.formatMoney(item.price)
             
             }
             
           </IconButton>
         }
-        title={''}
-        subheader="In Stock"
+        title={item.product_name}
+        subheader={item.category}
       />
       <CardMedia
         component="img"
         height="194"
-        image={""}
+        image={item.image}
         alt={"category"}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-        Awesome Granite Bacon
+        {item.category}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -65,7 +66,7 @@ export default function Product() {
           <AddShoppingCartIcon />
         </IconButton>
         <IconButton aria-label="share">
-          {Array(4)
+          {Array(5)
           .fill()
           .map((_, i)=>(
             <StarIcon/>
@@ -85,7 +86,7 @@ export default function Product() {
         <CardContent>
           <Typography>
           {
-            {}
+            item.description
           }
           </Typography>
         </CardContent>
