@@ -32,7 +32,7 @@ export default function Product({item}) {
     setExpanded(!expanded);
   };
 
-  const {price} = item
+  
   
   return (
     
@@ -50,6 +50,7 @@ export default function Product({item}) {
         }
         title={item.product_name}
         subheader={item.category}
+       //poner un onclick
       />
       <CardMedia
         component="img"

@@ -15,7 +15,12 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Button from '@mui/material/Button';
 import CelebrationRoundedIcon from '@mui/icons-material/CelebrationRounded';
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -152,12 +157,16 @@ export default function NavBar({searcher, search}) {
   );
 
   return (
+      
     <Box sx={{ flexGrow: 1 }}>
+
+      
       <AppBar position="static">
         <Toolbar>
-          <IconButton>
+        <IconButton>
             <CelebrationRoundedIcon/>
-          </IconButton>
+        </IconButton>
+          
         
         
           <Typography
@@ -221,5 +230,6 @@ export default function NavBar({searcher, search}) {
       {renderMobileMenu}
       {renderMenu}
     </Box>
+    
   );
 }
