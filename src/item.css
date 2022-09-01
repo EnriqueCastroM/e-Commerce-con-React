@@ -39,6 +39,11 @@
     color: #3354FF;
 }
 
+.price:hover{
+    font-weight: 800;
+    text-shadow:0 .5px .5px var(--blanco);
+}
+
 .hover-container{
     background-image: linear-gradient(rgba(37, 35, 35, 0.637), rgba(37, 35, 35, 0.637));
     width: 100%;
@@ -47,6 +52,7 @@
     top: 0;
     opacity: 0;
     transition: all .3s ease-in-out;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }
 
 .item-container:hover .hover-container{
