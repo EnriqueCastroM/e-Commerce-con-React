@@ -11,7 +11,7 @@ const Grid = ({search}) => {
   const [page, setPage] = useState(0);
   const [option, setOption] = useState("all");
   const [dataItem, setData] = useState([]);
-  const [itemsxPagina, setItemsxPagina] = useState(20);
+  const [itemsxPagina, setItemsxPagina] = useState(12);
 
   const filter = items.filter((dato) =>  dato.product_name.toLowerCase().includes(search.toLocaleLowerCase()))
 
@@ -37,13 +37,13 @@ const Grid = ({search}) => {
       // Definimos que solo se vean los 10 más nuevos y reseteamos los demás valores
       setPage(0);
       setItems(sort_date);
-      setItemsxPagina(10);
+      setItemsxPagina(12);
     }
     else{
       // Reseteamos los demás valores para que se vean todos
       setPage(0);
       setItems(shuffle(dataItem));
-      setItemsxPagina(21);
+      setItemsxPagina(12);
     }
   }, [option]);
 
