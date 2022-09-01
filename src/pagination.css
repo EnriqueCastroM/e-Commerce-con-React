@@ -21,7 +21,7 @@ ul{
     transition: background-color .3s;
     border-radius: 10px;
     border: 1px solid #ddd;
-    margin: 0 4px;
+    margin: 0 4px 15px;
 }
 
 .active a {
@@ -31,5 +31,6 @@ ul{
 }
 
 .page-item:hover:not(.active) a{
-    background-color: #ddd;
+    background-color: #000;
+    color: #fff;
 }

@@ -27,6 +27,8 @@
     width: 230px;
     height: 200px;
     object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }
 
 .info-item{
@@ -46,6 +48,8 @@
     top: 0;
     opacity: 0;
     transition: all .3s ease-in-out;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+    border-radius: 15px;
 }
 
 .item-container:hover .hover-container{
@@ -62,7 +66,10 @@
 
 .title-hover{
     font-weight: 700;
+    font-weight: bold;
+    text-shadow:0 .5px .5px #eee71b ;
 }
+
 
 .item-button{
     text-decoration: none;
@@ -84,3 +91,4 @@
 button{
     cursor: pointer;
 }
+

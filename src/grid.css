@@ -1,7 +1,13 @@
 .body-grid{
-    width: 90%;
+    width: 80%;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 70px;
+    max-width: 140rem;
+	-webkit-box-shadow: 0px 5px 15px 0px rgba(100,100,112,0.4);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.4);
+    box-shadow: 0px 5px 5px 0px rgba(249, 9, 9, 0.353);
+    padding: 1 1 1 1rem;
+    border-radius: .5rem;
 }
 
 .grid-container{
@@ -17,10 +23,16 @@
 
 .all{
     margin-left: 1rem;
+    color: #EF8233;
 }
 
+.all:hover{
+    text-shadow:0 .5px .5px #000;
+}
 .options-container{
     margin-bottom: 2rem;
+    margin-top: 50px;
+    margin-left: 10px;
 }
 
 .options-container button{
@@ -32,6 +44,12 @@
     font-family: 'Roboto', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
+    margin-bottom: 10px;
+    color: #EF8233;
+}
+
+.options-container button:hover{
+    text-shadow:0 .5px .5px #000;
 }
 
 .selected{
