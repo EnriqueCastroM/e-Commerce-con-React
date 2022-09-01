@@ -6,6 +6,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Product from './product';
 import axios from 'axios';
+import NavBar from './navbar';
 
    
 const Item = styled(Paper)(({ theme }) => ({
@@ -34,28 +35,39 @@ const showData = async () => {
   }
 
  //función de búsqueda
-const searcher = (e) => {
-    setSearch(e.target.value)   
+const searcher = (value) => {
+    console.log(value)  
+    setSearch(value)
+     
 }
 
  //metodo de filtrado 2   
- const results = !search ? items : items.filter((dato)=> dato.name.toLowerCase().includes(search.toLocaleLowerCase()))
+ const results = !search ? items : items.filter((dato)=> dato?.name?.toLowerCase().includes(search?.toLocaleLowerCase()))
 
  useEffect( ()=> {
   showData()
 }, [])
 
   return (
+       
     
-    
-    
-        <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      <Box sx={{ flexGrow: 1 }}>
+      
+        <NavBar searcher={searcher} search={search}/>      
+       {
+        console.log(results)
+
+       }
+
+
+
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       { results.map( (item) => (
                   <Grid item xs={2} sm={4} md={4} key={item._id}>
                   <Product item={item}/>
                   </Grid>                    
                 ))}
+         
       </Grid>
       </Box>
       

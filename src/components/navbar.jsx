@@ -56,10 +56,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function NavBar() {
+export default function NavBar({searcher, search}) {
+
+  
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -171,8 +172,12 @@ export default function NavBar() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              
+              placeholder="Busque aqui su producto"              
               inputProps={{ 'aria-label': 'search' }}
+              value={search}
+              onChange={(event)=> searcher(event.target.value)}
+              
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
