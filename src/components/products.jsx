@@ -22,6 +22,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Products() {
 //setear los hooks useState
 const [ items, setItems ] = useState([])
+const [tablaItems, setTablaItems] = useState([])
 const [ search, setSearch ] = useState("")   
 
 //función para traer los datos de la API
@@ -32,17 +33,23 @@ const showData = async () => {
     const data = await response.json()
     //console.log(data)
     setItems(data)
+    setTablaItems(data)
   }
 
  //función de búsqueda
 const searcher = (value) => {
     console.log(value)  
     setSearch(value)
-     
+    filter(value)
+} 
+
+const filter= (terminoBusqueda)=>{
+ const results = !search ? items : tablaItems.filter((dato)=> dato?.product_name?.toLowerCase().includes(search?.toLocaleLowerCase()))
+  setItems(results)
 }
 
- //metodo de filtrado 2   
- const results = !search ? items : items.filter((dato)=> dato?.name?.toLowerCase().includes(search?.toLocaleLowerCase()))
+//  //metodo de filtrado 2   
+//  const results = !search ? items : items.filter((dato)=> dato?.product_name?.toLowerCase().includes(search?.toLocaleLowerCase()))
 
  useEffect( ()=> {
   showData()
@@ -54,15 +61,9 @@ const searcher = (value) => {
       <Box sx={{ flexGrow: 1 }}>
       
         <NavBar searcher={searcher} search={search}/>      
-       {
-        console.log(results)
-
-       }
-
-
-
+       
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-      { results.map( (item) => (
+      { items.map( (item) => (
                   <Grid item xs={2} sm={4} md={4} key={item._id}>
                   <Product item={item}/>
                   </Grid>                    
