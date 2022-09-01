@@ -1,83 +1,65 @@
-import * as React from 'react';
-import {useState, useEffect} from 'react'
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import Product from './product';
+import React, { useState, useEffect } from 'react';
+import { trackPromise } from 'react-promise-tracker';
+import Navbar from './Navbar'
+import {
+  useParams,
+  Link
+} from "react-router-dom";
 import axios from 'axios';
-import NavBar from './navbar';
+import '../Products.css'
 
-   
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+const Products = () => {
 
- 
+  const [product, setProduct] = useState(0);
+  const params = useParams();
 
-export default function Products() {
-//setear los hooks useState
-const [ items, setItems ] = useState([])
-const [tablaItems, setTablaItems] = useState([])
-const [ search, setSearch ] = useState("")   
+  useEffect(() => {
+    trackPromise(
+      getProduct().then(product => {
+        console.log(product);
+        setProduct(product);
 
-//función para traer los datos de la API
-const URL = 'https://ecomerce-master.herokuapp.com/api/v1/item'
+      })
+    )
 
-const showData = async () => {
-    const response = await fetch(URL)
-    const data = await response.json()
-    //console.log(data)
-    setItems(data)
-    setTablaItems(data)
+  }, [])
+
+
+
+  const getProduct = () => {
+    const promise = new Promise((resolve, reject) => {
+      const url = `https://ecomerce-master.herokuapp.com/api/v1/item/${params.id}`;
+      resolve(axios.get(url).then(
+        response => response.data
+      ))
+    });
+    return promise;
   }
 
- //función de búsqueda
-const searcher = (value) => {
-    console.log(value)  
-    setSearch(value)
-    filter(value)
-} 
-
-const filter= (terminoBusqueda)=>{
- const results = !search ? items : tablaItems.filter((dato)=> dato?.product_name?.toLowerCase().includes(search?.toLocaleLowerCase()))
-  setItems(results)
-}
-
-//  //metodo de filtrado 2   
-//  const results = !search ? items : items.filter((dato)=> dato?.product_name?.toLowerCase().includes(search?.toLocaleLowerCase()))
-
- useEffect( ()=> {
-  showData()
-}, [])
-
   return (
-       
-    
-      <Box sx={{ flexGrow: 1 }}>
-      
-        <NavBar searcher={searcher} search={search}/>      
-       
-        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-      { items.map( (item) => (
-                  <Grid item xs={2} sm={4} md={4} key={item._id}>
-                  <Product item={item}/>
-                  </Grid>                    
-                ))}
-         
-      </Grid>
-      </Box>
-      
-              
-            
-    
-  );
+    <>
+      <Navbar />
+      <div className="product">
+        <div className="product-info">
+          <p className='product-name'>{product.product_name}</p>
+          <p className='product-price'>${product.price}</p>
+          <p className='product-desc'> <span className='bold'>Descripción: </span> <br /> {product.description}</p>
+          <p className='product-brand'><span className='bold'>Marca: </span> <br /> {product.brand}</p>
+          <p className='product-cat'><span className='bold'>Categoria: </span> <br /> {product.category}</p>
+          <p className='product-stock'><span className='bold'>Stock: </span> <br /> {product.isActive === true ? "Activo" : "Inactivo"} </p>
+          <Link to={'/Buy'}>
+            {
+              product.isActive === true ? <button className='product-button active'>Comprar</button> : <p className='product-inactive'>No hay producto</p>
+            }
+          </Link>
+        </div>
+        <div className="img-product">
+          <img src={product.image} alt={"#"} />
+        </div>
+      </div>
+    </>
+
+  )
 }
 
-
-
-
+export default Products
