@@ -43,7 +43,7 @@ const Grid = ({search}) => {
       // Reseteamos los demás valores para que se vean todos
       setPage(0);
       setItems(shuffle(dataItem));
-      setItemsxPagina(20);
+      setItemsxPagina(21);
     }
   }, [option]);
 

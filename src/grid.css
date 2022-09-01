@@ -23,8 +23,12 @@
 
 .all{
     margin-left: 1rem;
+    color: #EF8233;
 }
 
+.all:hover{
+    text-shadow:0 .5px .5px #000;
+}
 .options-container{
     margin-bottom: 2rem;
     margin-top: 50px;
@@ -41,6 +45,11 @@
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 10px;
+    color: #EF8233;
+}
+
+.options-container button:hover{
+    text-shadow:0 .5px .5px #000;
 }
 
 .selected{
