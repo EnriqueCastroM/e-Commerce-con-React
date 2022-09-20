@@ -36,7 +36,7 @@ const SignUp = () => {
     return (
         <div className='signin-section'>
 
-            <div className='left-signin-section' > </div>
+            
 
             <div className='right-signin-section'>
 
@@ -107,9 +107,11 @@ const SignUp = () => {
 
                 </form>
 
-
+                       
 
             </div>
+            
+            <div className='left-signin-section' > </div> 
 
 
         </div>

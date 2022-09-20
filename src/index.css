@@ -10,7 +10,7 @@
 
 body{
   font-family: 'Roboto', sans-serif;
-  background-color: #F0F0F0;
+  background-color: #12bad8;
 }
 
 a{
@@ -25,17 +25,15 @@ a{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: rgb(0, 0, 0);
+  color: rgb(48, 40, 40);
   position: fixed;
   z-index: 4;
   width: 100%;
   top: 0;
 }
-.nav.icon-container{
-  background: url("./imgs/meteor.svg");
-}
+
 .nav h1{
-  font-family: 'Roboto';
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding-top: 5px;
 }
 
@@ -43,6 +41,10 @@ a{
   font-weight: 300;
 }
 
+.nav img{
+  height: 50px;
+  margin: 0;
+}
 
 .right-container{
   display: flex;
@@ -51,6 +53,8 @@ a{
 
 .title-container{
   padding: 0 1rem;
+  display: block;
+  
 }
 
 

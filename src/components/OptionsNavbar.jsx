@@ -6,11 +6,11 @@ const OptionsNavbar = () => {
     <div className="links-container">
                 
                 <Link to={'/signin'} >
-                  Iniciar Sesión
+                  Login
                 </Link>
                 
                 <Link to={'/signup'}>
-                  Registrarse
+                  
                 </Link>
 
             </div>

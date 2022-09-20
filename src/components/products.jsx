@@ -40,6 +40,9 @@ const Products = () => {
     <>
       <Navbar />
       <div className="product">
+      <div className="img-product">
+          <img src={product.image} alt={"#"} />
+        </div>
         <div className="product-info">
           <p className='product-name'>{product.product_name}</p>
           <p className='product-price'>${product.price}</p>
@@ -53,9 +56,7 @@ const Products = () => {
             }
           </Link>
         </div>
-        <div className="img-product">
-          <img src={product.image} alt={"#"} />
-        </div>
+        
       </div>
     </>
 
