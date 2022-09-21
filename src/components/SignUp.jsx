@@ -6,6 +6,7 @@ import "../SignIn.css"
 
 const SignUp = () => {
 
+    
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) => {
         postRegister(data);
