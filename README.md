@@ -5,16 +5,12 @@ El diseño es libre y esta vez SÍ se tomará en cuenta.
  
 API
 El resumen de los endpoints de la API con la qué deberás trabajar la puedes encontrar aquí:
-https://ecomerce-master.herokuapp.com/docs
+https://json-server-jwt-production.up.railway.app
 La documentación más completa la puedes consultar en:
 https://documenter.getpostman.com/view/807695/Tzm6jvYY
  
 REQUERIMIENTOS FUNCIONALES
 Se recomienda realizar el proyecto con una aproximación por fases, añadiendo nuevas características en cada iteración.
- 
- 
- 
- 
  
 MVP FASE 1: Ver y Consultar Productos
 En esta etapa nos centraremos en arrancar el proyecto y poder consumir la API, con el objetivo de mostrar la información más relevante de una tienda: Los productos y detalles de los mismos.
@@ -63,8 +59,6 @@ Login (Iniciar sesión)
 Signup (Registro)
  
 Skills: Autenticación con JWT, localStorage, Manejo de formularios y eventos
- 
- 
 
 MVP FASE 3: Crear productos como Administrador
 Dotaremos a la aplicación de la capacidad de distinguir a un usuario normal de un usuario administrador. El usuario administrador podrá crear nuevos productos.
