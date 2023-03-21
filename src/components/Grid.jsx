@@ -54,7 +54,7 @@ const Grid = ({search}) => {
 
   const getItems = () => {
     const promise = new Promise((resolve, reject) => {
-      const url = `https://ecomerce-master.herokuapp.com/api/v1/item`;
+      const url = `https://json-server-jwt-production.up.railway.app/items`;
       resolve(axios.get(url).then(
         response => response.data
       ))
